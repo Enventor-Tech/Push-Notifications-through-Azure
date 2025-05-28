@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="PushNotifications.MainPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30,0"
+            Spacing="25"
+            VerticalOptions="Center">
+
+            <!--<Button
+                x:Name="registerButton"
+                Clicked="OnRegisterButtonClicked"
+                Text="Schedule Notification" />
+            <Entry
+                x:Name="MessageEntry"
+                Placeholder="Enter notification message"
+                Text="Meeting reminder" />
+            <Entry
+                x:Name="MinutesBeforeEntry"
+                Keyboard="Numeric"
+                Placeholder="Minutes before (e.g., 45)"
+                Text="45" />-->
+
+
+
+            <Label
+                x:Name="EasternTimeLabel"
+                FontAttributes="Bold"
+                FontSize="20"
+                HorizontalOptions="Center"
+                Text="Loading Eastern Time..." />
+            <Button
+                x:Name="registerButton"
+                Clicked="OnRegisterButtonClicked"
+                Text="Register Notification" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
