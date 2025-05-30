@@ -84,8 +84,19 @@ namespace PushNotificationWebAPI.Services
                 return (false, $"Scheduled time {scheduledNotification.ScheduledTime:yyyy-MM-dd HH:mm:ss} is not in the future.");
             }
 
-            var androidPayload = $@"{{ ""data"": {{ ""message"": ""{scheduledNotification.Message}"" }} }}";
-            var iOSPayload = $@"{{ ""aps"": {{ ""alert"": ""{scheduledNotification.Message}"", ""badge"": 1, ""sound"": ""default"" }} }}";
+            var androidPayload = $@"{{
+  ""message"": {{
+    ""notification"": {{
+      ""body"": ""{scheduledNotification.Message}""
+    }}
+  }}
+}}";
+
+            var iOSPayload = $@"{{
+  ""aps"": {{
+    ""alert"": ""{scheduledNotification.Message}""
+  }}
+}}";
 
             // Convert DateTime to DateTimeOffset, assuming ScheduledTime is in UTC
             var deliveryTime = new DateTimeOffset(scheduledNotification.ScheduledTime, TimeSpan.Zero);
