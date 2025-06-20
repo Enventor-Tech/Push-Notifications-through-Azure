@@ -11,7 +11,7 @@ namespace PushNotifications.Platforms.iOS
 {
     public class DeviceInstallationService : IDeviceInstallationService
     {
-        const int SupportedVersionMajor = 13;
+        const int SupportedVersionMajor = 16;
         const int SupportedVersionMinor = 0;
 
         public string Token { get; set; }
