@@ -4,18 +4,20 @@ using System.Threading.Tasks;
 using Microsoft.Maui.Controls;
 using Microsoft.Maui.Dispatching;
 
+[assembly: Dependency(typeof(NotificationRegistrationService))]
 namespace PushNotifications
 {
     public partial class MainPage : ContentPage
     {
         private readonly INotificationRegistrationService _notificationRegistrationService;
 
-        public MainPage(INotificationRegistrationService service)
-        {
-            InitializeComponent();
-            _notificationRegistrationService = service;
-            StartEasternTimeUpdate();
-        }
+        public MainPage()
+{
+    InitializeComponent();
+
+    _notificationRegistrationService = DependencyService.Get<INotificationRegistrationService>();
+    StartEasternTimeUpdate();
+}
 
 #if ANDROID
         protected override async void OnAppearing()
